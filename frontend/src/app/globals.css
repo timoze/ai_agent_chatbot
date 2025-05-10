@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 245, 245, 245;
+  --background-end-rgb: 255, 255, 255;
+}
+
+.dark {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 17, 24, 39;
+  --background-end-rgb: 31, 41, 55;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #4b5563;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a1a1a1;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}
+
+/* Code and pre styles */
+code {
+  @apply px-1 py-0.5 rounded text-sm bg-gray-100 dark:bg-gray-800;
+}
+
+pre {
+  @apply p-4 rounded-md bg-gray-100 dark:bg-gray-800 overflow-auto my-4;
+}
+
+pre code {
+  @apply bg-transparent p-0 text-sm;
+}
+
+/* Smooth transition for dark mode */
+html.dark {
+  @apply transition-colors duration-200;
+}
+
+/* Improve focus styles for accessibility */
+*:focus {
+  @apply outline-none ring-2 ring-primary-500;
+}
+
+/* Import animations */
+@import '../styles/animations.css';

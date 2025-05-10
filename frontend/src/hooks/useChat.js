@@ -35,10 +35,11 @@ export function useChat() {
     
     // Add user message to chat
     const userMessage = {
-      id: Date.now().toString(),
+      
       role: 'user',
       content,
       timestamp: new Date().toISOString(),
+
     };
     
     setMessages(prev => [...prev, userMessage]);
@@ -50,10 +51,11 @@ export function useChat() {
       
       // Add AI response to chat
       const aiMessage = {
-        id: (Date.now() + 1).toString(),
         role: 'assistant',
-        content: response.response,
-        timestamp: new Date().toISOString(),
+        content: response.content,
+        conversation_id: response.conversation_id,
+        timestamp: new Date(response.timestamp).toISOString(),
+        model_used: response.model_used
       };
       
       setMessages(prev => [...prev, aiMessage]);

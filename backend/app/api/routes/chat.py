@@ -41,9 +41,10 @@ async def chat_with_ai(request: ChatRequest):
         )
         
         response = ChatResponse(
-            response=response_data["response"],
+            content=response_data["content"],
             conversation_id=response_data["conversation_id"] if not request.conversation_id else request.conversation_id,
-            model_used=response_data["model_used"]
+            model_used=response_data["model_used"],
+            role="assistant"  # Add role information
         )
         
         # Log successful API call

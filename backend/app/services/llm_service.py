@@ -59,7 +59,7 @@ class LLMService:
                 raise ValueError(f"Unsupported LLM provider: {self.provider}")
             
             return {
-                "response": response,
+                "content": response,
                 "conversation_id": conversation_id,
                 "model_used": self.model
             }

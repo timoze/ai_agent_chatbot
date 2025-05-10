@@ -20,12 +20,12 @@ class ChatRequest(BaseModel):
 
 
 class ChatResponse(BaseModel):
-    """Model for chat response."""
-    response: str = Field(..., description="AI's response to the user's message")
+    content: str = Field(..., description="AI's response content")  # Renamed from 'response'
     conversation_id: str = Field(..., description="ID for the conversation")
     timestamp: datetime = Field(default_factory=datetime.now, description="Timestamp of the response")
     model_used: str = Field(..., description="The LLM model used for generating the response")
-
+    role: str = Field(default="assistant", description="Message author role")  # Add role field
+    
 
 class ErrorResponse(BaseModel):
     """Model for error responses."""

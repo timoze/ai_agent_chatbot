@@ -33,7 +33,7 @@ export default function Message({ message }) {
   
   // Copy to clipboard function
   const copyToClipboard = () => {
-    navigator.clipboard.writeText(message.response);
+    navigator.clipboard.writeText(message.content);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
